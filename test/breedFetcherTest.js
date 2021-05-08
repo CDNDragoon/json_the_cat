@@ -17,4 +17,15 @@ describe('fetchBreedDescription', () => {
       done();
     });
   });
+
+  it('returns a string error for a non-valid breed, via callback', (done) => {
+    const badBreed = 'afkjbaskfjgaskfjgaskjf';
+    fetchBreedDescription(badBreed, (err, desc) => {
+      // we expect an error for this scenario
+      assert.equal(err, "Didn't work bro");
+      // compare returned description
+      assert.equal(null, desc);
+      done();
+    });
+  });
 });
